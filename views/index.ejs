@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Person List</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Person List</h1>
+    <a href="/person/new" class="btn">Add New Person</a>
+    
+    <% if (people && people.length > 0) { %>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Mobile</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% people.forEach(person => { %>
+            <tr>
+              <td><%= person.name %></td>
+              <td><%= person.age %></td>
+              <td><%= person.gender %></td>
+              <td><%= person.mobile %></td>
+              <td>
+                <a href="/person/<%= person._id %>/edit" class="btn">Edit</a>
+                <a href="/person/<%= person._id %>/delete" class="btn btn-danger">Delete</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    <% } else { %>
+      <p>No people found in the database.</p>
+    <% } %>
+  </div>
+</body>
+</html>

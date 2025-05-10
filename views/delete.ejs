@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Person</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Delete Person</h1>
+    
+    <p>Are you sure you want to delete the following person?</p>
+    
+    <table>
+      <tr>
+        <th>Name:</th>
+        <td><%= person.name %></td>
+      </tr>
+      <tr>
+        <th>Age:</th>
+        <td><%= person.age %></td>
+      </tr>
+      <tr>
+        <th>Gender:</th>
+        <td><%= person.gender %></td>
+      </tr>
+      <tr>
+        <th>Mobile:</th>
+        <td><%= person.mobile %></td>
+      </tr>
+    </table>
+    
+    <form action="/person/<%= person._id %>/delete" method="POST">
+      <button type="submit" class="btn btn-danger">Delete</button>
+      <a href="/person" class="btn">Cancel</a>
+    </form>
+  </div>
+</body>
+</html>
